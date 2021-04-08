@@ -1,0 +1,11 @@
+flask
+flask_cors
+gunicorn
+numpy=1.19.5
+pandas=1.0.5
+requests
+pymongo
+python-dotenv
+tensorflow==2.4.1
+keras==2.4.1
+nltk=3.5
