@@ -8,4 +8,4 @@ pymongo
 python-dotenv
 tensorflow==2.4.1
 keras==2.4.1
-nltk=3.5
+nltk==3.5
