@@ -7,6 +7,7 @@ Deploying a simple Flask app to the cloud via Heroku
 python --version
 
 pip install -r requirements.txt
+pip install -r train_requirements.txt
 
 or 
 pip list
