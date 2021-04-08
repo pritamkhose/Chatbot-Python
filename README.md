@@ -7,7 +7,6 @@ Deploying a simple Flask app to the cloud via Heroku
 python --version
 
 pip install -r requirements.txt
-pip install -r train_requirements.txt
 
 or 
 pip list
@@ -31,6 +30,16 @@ python app.py
 
 You should be able to run this app on your own system via the familiar invocation and visiting [http://localhost:5000](http://localhost:5000).
 
+# To Deploy on [Gitpod](https://gitpod.io/#https://github.com/pritamkhose/Chatbot-Python)
+
+```sh
+python --version
+pyenv versions
+pyenv install --list
+pyenv install 3.8.3
+pyenv local 3.8.3
+python --version
+```
 # References
 * [Soruce Project](https://data-flair.training/blogs/python-chatbot-project/) and [Code Link](https://data-flair.training/blogs/download-python-chatbot-data-project-source-code/)
 
