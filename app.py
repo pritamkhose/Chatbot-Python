@@ -2,6 +2,7 @@
 # https://data-flair.training/blogs/python-chatbot-project/
 
 # libraries
+from nltk.stem import WordNetLemmatizer
 import pickle
 import numpy as np
 import json
@@ -12,6 +13,8 @@ from flask_cors import CORS
 
 from keras.models import load_model
 import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
@@ -31,6 +34,17 @@ def index():
     <h1>Welcome to AI Chatbot!</h1>
     <p>It is currently {time}.</p>
     """.format(time=the_time)
+
+
+@ app.route('/postman', methods=['GET'])
+def postmanAPI():
+    # Read json file in folder
+    return json.load(open('ChatbotPython.postman_collection.json'))
+
+
+@ app.route('/traindata', methods=['GET'])
+def trainDataAPI():
+    return json.load(open('intents.json'))
 
 
 # chat initialization
