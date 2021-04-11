@@ -36,7 +36,6 @@ Open appColab.ipynb run all script or follow below command.
 
 ```sh
 python --version
-pyenv versions
 !git clone https://github.com/pritamkhose/Chatbot-Python
 cd Chatbot-Python
 ls

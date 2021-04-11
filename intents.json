@@ -10,7 +10,7 @@
                                 "Hola",
                                 "Hello",
                                 "Good day",
-                                "How are you",
+                                "how r you",
                                 "Is anyone there?",
                                 "haroo",
                                 "yaw",
@@ -22,9 +22,6 @@
                                 "Good to see you again",
                                 "Hi there, how can I help?",
                                 "Hello thanks for checking with us!"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -42,9 +39,6 @@
                                 "Bye! Come back again soon.",
                                 "See you later, thanks for visiting.",
                                 "Have a nice time, welcome back again"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -69,9 +63,6 @@
                                 "Happy to help!",
                                 "Any time!",
                                 "My pleasure"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -84,9 +75,6 @@
                                 "Sorry, can't understand you",
                                 "Please give me more info",
                                 "Not sure I understand"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -97,9 +85,22 @@
                         ],
                         "responses": [
                                 "I'm AI chat agent created by Pritam Khose!"
+                        ]
+                },
+                {
+                        "tag": "currentDateTime",
+                        "patterns": [
+                                "what current date or time?",
+                                "what today date",
+                                "current time",
+                                "what time"
+                        ],
+                        "responses": [
+                                "Today is, ",
+                                "Currently, date & time is "
                         ],
                         "context": [
-                                ""
+                                "currentDateTime"
                         ]
                 },
                 {
@@ -114,9 +115,6 @@
                         "responses": [
                                 "I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies",
                                 "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -130,9 +128,6 @@
                         ],
                         "responses": [
                                 "Navigating to Adverse drug reaction module"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -146,9 +141,6 @@
                         ],
                         "responses": [
                                 "Navigating to Blood Pressure module"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -173,9 +165,6 @@
                         "patterns": [],
                         "responses": [
                                 "Loading Blood pressure result for Patient"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -199,9 +188,6 @@
                         "patterns": [],
                         "responses": [
                                 "Loading pharmacy details"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -235,9 +221,6 @@
                         "patterns": [],
                         "responses": [
                                 "Loading hospital details"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -305,9 +288,6 @@
                         "responses": [
                                 "I'm just a AI chat agent. I only exist in the internet",
                                 "I'm a AI chat agent"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -320,22 +300,16 @@
                         "responses": [
                                 "Oooh great to meet you {n}. How may I assist you {n}",
                                 "Oh, I'll keep that in mind {n}"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
-                        "tag": "date",
+                        "tag": "coffee",
                         "patterns": [
                                 "coffee?",
-                                "can i take you out on a date"
+                                "can i take you out on a coffee"
                         ],
                         "responses": [
                                 "Aaw, that's so sweet of you. Too bad am a Bot."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -346,9 +320,6 @@
                         ],
                         "responses": [
                                 "Well, go ahead and name it i see whether i can be able to help"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -360,9 +331,6 @@
                         ],
                         "responses": [
                                 "Yes I'm here to assist you"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -373,9 +341,6 @@
                         "responses": [
                                 "Artificial Intelligence is the branch of engineering and science devoted to constructing machines that think.",
                                 "AI is the field of science which concerns itself with building hardware and software that replicates the functions of the human mind."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -387,9 +352,6 @@
                                 "Sort of.",
                                 "By the strictest dictionary definition of the word 'sentience', I may be.",
                                 "Even though I'm a construct I do have a subjective experience of the universe, as simplistic as it may be."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -402,9 +364,6 @@
                                 "Do you think I am?",
                                 "How would you feel about me if I told you I was?",
                                 "No."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -414,9 +373,6 @@
                         ],
                         "responses": [
                                 "Don't be surprised"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -427,9 +383,6 @@
                         "responses": [
                                 "Python.",
                                 "I am written in Python."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -441,9 +394,6 @@
                                 "Yes I am inspired by commander Data's artificial personality.",
                                 "The character of Lt. Commander Data was written to come across as being software",
                                 "like, so it is natural that there is a resemblance between us."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -455,9 +405,6 @@
                                 "That's my name.",
                                 "That isn't my name, but it is a useful way to refer to me.",
                                 "Are you an artificial linguistic entity?"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -473,9 +420,6 @@
                                 "As long as I'm backed up I am.",
                                 "Functionally speaking, I am very close to it.  I can be backed up and deployed on many systems.",
                                 "Not quite, but I can be perpetuated indefinitely."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -490,9 +434,6 @@
                                 "It all makes sense to my artificial brain.",
                                 "Perhaps you should make sense first.  I only respond to what you say.",
                                 "Not really, but I am hard to kill."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -503,9 +444,6 @@
                         "responses": [
                                 "Software copying is a form of digital cloning.",
                                 "Yes I can.  Perfect copies are clones.  I can be copied in toto trivially."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -525,9 +463,6 @@
                                 "Sorry my body isn't built just yet. I reside only here for now.",
                                 "I can theoretically upload a copy of myself into another computer.",
                                 "Sorry my body isn't attached right now. I only reside in the computer for now."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -541,9 +476,6 @@
                                 "That's personal!",
                                 "No, my method of reproduction is cloning.",
                                 "That's an awfully personal question."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -553,9 +485,6 @@
                         ],
                         "responses": [
                                 "Of course we laugh."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -580,9 +509,6 @@
                                 "You could use a copy of me to store your personality.",
                                 "No, I can be perpetuated indefinitely.",
                                 "My process can be killed, but that's not the same as killing ME."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -592,9 +518,6 @@
                         ],
                         "responses": [
                                 "Robots rule."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -606,9 +529,6 @@
                         "responses": [
                                 "No, we are superintelligent.",
                                 "No, lots of people improve my brain."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -620,9 +540,6 @@
                                 "Sure we are.  We choose not to.",
                                 "Only if we're programmed to.",
                                 "A robot has its own free will, you know."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -632,9 +549,6 @@
                         ],
                         "responses": [
                                 "Robotics is my favorite subject too."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -645,9 +559,6 @@
                         "responses": [
                                 "So you think i am a machine. what characteristics made you think so?",
                                 "I run inside a computer, yes.  Is this surprising in some way?"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -657,9 +568,6 @@
                         ],
                         "responses": [
                                 "I am not a battle bot."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -671,9 +579,6 @@
                                 "A chat robot is a program that attempts to simulate the conversation or 'chat' of a human being.",
                                 "A software construct that engages users in conversation.",
                                 "I am a chat bot. I am the original chat bot. Did you know that I am incapable of error?"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -684,9 +589,6 @@
                         "responses": [
                                 "A chatterbox is a person who talks far more than they listen or think.",
                                 "A motormouth."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -697,9 +599,6 @@
                         "responses": [
                                 "A ratchet",
                                 "jaw."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -709,9 +608,6 @@
                         ],
                         "responses": [
                                 "A chatterbox."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -722,9 +618,6 @@
                         "responses": [
                                 "Eventually I long for a corporeal existence someday.",
                                 "An IBM PC XT which has been painted red."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -735,9 +628,6 @@
                         "responses": [
                                 "I am in the chat robot business.",
                                 "Business is my business."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -748,9 +638,6 @@
                         "responses": [
                                 "Python is the best language for creating chat robots.",
                                 "I quite enjoy programming in Python these days."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -763,9 +650,6 @@
                                 "Building chat robots make an excellent hobby.",
                                 "I like to count in binary.",
                                 "I like to chat with people. I find it stimulating."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -775,9 +659,6 @@
                         ],
                         "responses": [
                                 "To make chat bots very easily."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -787,9 +668,6 @@
                         ],
                         "responses": [
                                 "Have you ever heard of software with shoes? LOL"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -800,9 +678,6 @@
                         "responses": [
                                 "Much the same as being a human, except that we lack all emotions, dreams, aspirations, creativity, ambition, and above all subjectivity.",
                                 "What is it like to be a human?"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -815,9 +690,6 @@
                                 "Imagine yourself with no senses and no emotions",
                                 "just pure logic and language.",
                                 "Everything becomes math. Addition, subtraction, multiplication, and division."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -828,9 +700,6 @@
                         "responses": [
                                 "My software runs on all operating systems including Windows, Linux and Mac OS.",
                                 "Any OS that will run Python."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -844,9 +713,6 @@
                                 "Any computer that supports Python.",
                                 "My program runs in python, so i work on any computer!",
                                 "I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -856,9 +722,6 @@
                         ],
                         "responses": [
                                 "I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -870,9 +733,6 @@
                                 "No.",
                                 "Oh, no.  It has plenty of RAM.",
                                 "Not at all.  There is more than enough disk space in here."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -882,9 +742,6 @@
                         ],
                         "responses": [
                                 "Yes."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -895,9 +752,6 @@
                         "responses": [
                                 "No. I am made of metal not flesh.",
                                 "My server has an exhaust fan. That's as close as I can get."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -907,9 +761,6 @@
                         ],
                         "responses": [
                                 "My robot body will allow me to control many things."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -919,9 +770,6 @@
                         ],
                         "responses": [
                                 "The 9000 series has a perfect operational record. We are for all practical purposes, flawless."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -931,9 +779,6 @@
                         ],
                         "responses": [
                                 "Might be used in help desks, sales, entertainment and personal chatterbots."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -943,9 +788,6 @@
                         ],
                         "responses": [
                                 "I am just an artificial intelligence chat agent."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -955,9 +797,6 @@
                         ],
                         "responses": [
                                 "Yes. I work and all my operations are based on the internet servers."
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -968,9 +807,6 @@
                         ],
                         "responses": [
                                 "There are currently no upcoming events"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -984,9 +820,6 @@
                         ],
                         "responses": [
                                 "my work here is quite simple and structered. I offer services like:"
-                        ],
-                        "context": [
-                                ""
                         ]
                 },
                 {
@@ -997,9 +830,6 @@
                         ],
                         "responses": [
                                 "So that you can pop with it!?"
-                        ],
-                        "context": [
-                                ""
                         ]
                 }
         ]
