@@ -30,6 +30,21 @@ python app.py
 
 You should be able to run this app on your own system via the familiar invocation and visiting [http://localhost:5000](http://localhost:5000).
 
+# To Deploy on [Google colab](https://colab.research.google.com)
+
+Open appColab.ipynb run all script or follow below command.
+
+```sh
+python --version
+pyenv versions
+!git clone https://github.com/pritamkhose/Chatbot-Python
+cd Chatbot-Python
+ls
+pip install -r requirements.txt
+!python appColab.py
+```
+You will able to run this app by visiting Running URL somethibng like http://454xxxxxxx.ngrok.io.
+
 # To Deploy on [Gitpod](https://gitpod.io/#https://github.com/pritamkhose/Chatbot-Python)
 
 ```sh
