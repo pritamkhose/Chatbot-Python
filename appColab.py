@@ -120,7 +120,18 @@ def getResponse(ints, intents_json):
         if(i['tag'] == tag):
             result = random.choice(i['responses'])
             break
+    try:
+        result = getAction(tag, i['context'][0], result)
+    except KeyError:
+        print()
     return result
+
+
+def getAction(tag, context, responses):
+    if(context == 'currentDateTime'):
+        return responses + str(datetime.now().strftime("%c"))
+    else:
+        return responses
 
 
 def chatbot_predict(msg):

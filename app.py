@@ -122,8 +122,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i['responses'])
             break
     try:
-        if(i['context'][0] != ""):
-            result = getAction(tag, i['context'][0], result)
+        result = getAction(tag, i['context'][0], result)
     except KeyError:
         print()
     return result
