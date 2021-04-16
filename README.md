@@ -32,7 +32,7 @@ You should be able to run this app on your own system via the familiar invocatio
 
 # To Deploy on [Google colab](https://colab.research.google.com)
 
-Open appColab.ipynb run all script or follow below command. Make sure you have configure ".env" file "GoogleCoLab=True" and other variable 
+Open appColab.ipynb run all script or follow below command. Make sure you have configure "env.local" file "GoogleCoLab=True" and other variable like WEATHERAPI.
 
 ```sh
 python --version

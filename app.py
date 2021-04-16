@@ -19,10 +19,13 @@ from keras.models import load_model
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 lemmatizer = WordNetLemmatizer()
 
 # Load env file
-load_dotenv(os.path.join('.env'))
+load_dotenv(os.path.join('env.local'))
 GoogleCoLab = os.environ.get('GoogleCoLab')
 if(GoogleCoLab != None and GoogleCoLab == "True"):
     GoogleCoLab = True
