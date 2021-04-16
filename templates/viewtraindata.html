@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI ChatBot Training Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      type="application/javascript"
+      src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"
+    ></script>
+    <script
+      type="application/javascript"
+      src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"
+    ></script>
+    <script
+      type="application/javascript"
+      src="https://unpkg.com/babel-standalone@6.26.0/babel.js"
+    ></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="col-md mr-auto ml-auto">
+      <h2>AI ChatBot Training Data</h2>
+      <p class="center"><a href="/">Go to AI Chatbot</a></p>
+      <div id="root"></div>
+    </div>
+    <script type="text/babel">
+        const rootElement = document.getElementById("root");
+
+        class TableComponent extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              error: null,
+              isLoaded: false,
+              items: [],
+            };
+          }
+          componentDidMount() {
+            fetch("/traindata")
+              .then((res) => res.json())
+              .then(
+                (result) => {
+                  console.log(result);
+                  this.setState({
+                    isLoaded: true,
+                    items: result.intents,
+                  });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                  this.setState({
+                    isLoaded: true,
+                    error,
+                  });
+                }
+              );
+          }
+
+          render() {
+            const { error, isLoaded, items } = this.state;
+            if (error) {
+              return <div>Error: {error.message}</div>;
+            } else if (!isLoaded) {
+              return <div>Loading...</div>;
+            } else {
+              return (
+                <div class="table-responsive">
+                  <table>
+                    <tr>
+                      <th>No</th>
+                      <th>TAG</th>
+                      <th>Patterns</th>
+                      <th>Responses</th>
+                      <th>Context</th>
+                    </tr>
+                    {items.map((item, i) => (
+                      <tr key={i}>
+                        <td>{i + 1}</td>
+                        <td>{item.tag}</td>
+                        <td>
+                          <ul>
+                            {item.patterns.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </td>
+                        <td>
+                          <ul>
+                            {item.responses.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </td>
+                        <td>
+                          {item.context !== undefined ? item.context[0] : ""}
+                        </td>
+                      </tr>
+                    ))}
+                  </table>
+                </div>
+              );
+            }
+          }
+        }
+        function App() {
+          return (
+            <div>
+              <TableComponent title="React Train Data" />
+            </div>
+          );
+        }
+
+        ReactDOM.render(<App />, rootElement);
+      </script>
+  </body>
+</html>

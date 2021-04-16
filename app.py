@@ -2,6 +2,8 @@
 # https://data-flair.training/blogs/python-chatbot-project/
 
 # libraries
+import os
+from dotenv import load_dotenv
 from nltk.stem import WordNetLemmatizer
 import pickle
 import numpy as np
@@ -10,21 +12,38 @@ import random
 from datetime import datetime
 from flask import Flask, Response, request, jsonify, render_template
 from flask_cors import CORS
+from flask_ngrok import run_with_ngrok
+import requests
 
 from keras.models import load_model
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
-from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
+
+# Load env file
+load_dotenv(os.path.join('.env'))
+GoogleCoLab = os.environ.get('GoogleCoLab')
+if(GoogleCoLab != None and GoogleCoLab == "True"):
+    GoogleCoLab = True
+else:
+    GoogleCoLab = False
+print('GoogleCoLab is setup -->', GoogleCoLab)
 
 app = Flask(__name__)
 CORS(app)
+if(GoogleCoLab):
+    run_with_ngrok(app)
 
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/viewtraindata")
+def viewTrainData():
+    return render_template("viewtraindata.html")
 
 
 @app.route("/index")
@@ -40,6 +59,8 @@ def index():
 def postmanAPI():
     # Read json file in folder
     return json.load(open('ChatbotPython.postman_collection.json'))
+
+# use VS code plugin Prettier - Code formatter for intents.json
 
 
 @ app.route('/traindata', methods=['GET'])
@@ -114,7 +135,7 @@ def predict_class(sentence, model):
     return return_list
 
 
-def getResponse(ints, intents_json):
+def getResponse(ints, intents_json, msg):
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -122,22 +143,73 @@ def getResponse(ints, intents_json):
             result = random.choice(i['responses'])
             break
     try:
-        result = getAction(tag, i['context'][0], result)
+        result = getAction(tag, i['context'][0], result, msg)
     except KeyError:
         print()
     return result
 
 
-def getAction(tag, context, responses):
-    if(context == 'currentDateTime'):
+def getAction(tag, context, responses, msg):
+    if(tag == 'currentDateTime'):
         return responses + str(datetime.now().strftime("%c"))
+    elif(tag == 'locationWeather'):
+        if(len(getLocaton(msg)) > 0):
+            return fetchWeatherAPI(getLocaton(msg)[0], responses)
+        else:
+            return 'Please provide proper location name with case sensitivity!'
     else:
         return responses
 
 
+def getLocaton(line):
+    sentences = nltk.sent_tokenize(line)
+    tokenized_sentences = [nltk.word_tokenize(
+        sentence) for sentence in sentences]
+    tagged_sentences = [nltk.pos_tag(sentence)
+                        for sentence in tokenized_sentences]
+    chunked_sentences = nltk.ne_chunk_sents(tagged_sentences, binary=True)
+    entities = []
+    for tree in chunked_sentences:
+        entities.extend(extract_entity_names(tree))
+    return entities
+
+
+def extract_entity_names(t):
+    entity_names = []
+    if hasattr(t, 'label') and t.label:
+        if t.label() == 'NE':
+            entity_names.append(' '.join([child[0] for child in t]))
+        else:
+            for child in t:
+                entity_names.extend(extract_entity_names(child))
+    return entity_names
+
+
+def fetchWeatherAPI(loc, responses):
+    url = 'https://api.weatherapi.com/v1/current.json?key=' + \
+        os.environ.get('WEATHERAPI')+'&q='+loc+'&aqi=no'
+    data = requests.get(url)
+    if(data.status_code == 200):
+        data = data.json()
+        res = responses + ' ' + loc + ' is ' + (data['current']['condition']['text'] +
+                                                ', ' + str(data['current']['feelslike_c']) + '°C at Temperature, ' +
+                                                ' Humidity at ' + str(data['current']['humidity']) + '%' +
+                                                ' and Wind waves nearly ' +
+                                                str(data['current']
+                                                    ['wind_kph']) + 'km/h.'
+                                                )
+    elif(data.status_code == 400):
+        res = "No matching location found!"
+    elif(data.status_code == 401):
+        res = "Sorry! WEATHER API key is invalid or not provided at .env file."
+    else:
+        res = "Opps! Something went wrong!"
+    return res
+
+
 def chatbot_predict(msg):
     ints = predict_class(msg, model)
-    res = getResponse(ints, intents)
+    res = getResponse(ints, intents, msg)
     return res
 
 # Error Handling
@@ -151,4 +223,7 @@ def page_not_found(e):
 
 # Flask server invoke
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    if(GoogleCoLab):
+        app.run()
+    else:
+        app.run(debug=True, use_reloader=True)

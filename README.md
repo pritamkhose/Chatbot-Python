@@ -32,7 +32,7 @@ You should be able to run this app on your own system via the familiar invocatio
 
 # To Deploy on [Google colab](https://colab.research.google.com)
 
-Open appColab.ipynb run all script or follow below command.
+Open appColab.ipynb run all script or follow below command. Make sure you have configure ".env" file "GoogleCoLab=True" and other variable 
 
 ```sh
 python --version
@@ -40,9 +40,9 @@ python --version
 cd Chatbot-Python
 ls
 pip install -r requirements.txt
-!python appColab.py
+!python app.py
 ```
-You will able to run this app by visiting Running URL somethibng like http://454xxxxxxx.ngrok.io.
+You will able to run this app by visiting Running URL something like http://<random-address>.ngrok.io.
 
 # To Deploy on [Gitpod](https://gitpod.io/#https://github.com/pritamkhose/Chatbot-Python)
 
@@ -61,4 +61,14 @@ python --version
 
 * [w3schools Python Mongodb](https://www.w3schools.com/python/python_mongodb_getstarted.asp)
 
+* [Extract gpelocation using nltk](https://stackoverflow.com/questions/48660547/how-can-i-extract-gpelocation-using-nltk-ne-chunk)
 
+* [Get Weather API key](https://www.weatherapi.com/)
+
+* [Setup environment variables from .env file](https://pypi.org/project/python-dotenv/)
+
+* [React and Vue without npm and build](https://medium.com/front-end-weekly/react-and-vue-without-npm-and-build-2158ceef7082)
+
+* [React AJAX](https://reactjs.org/docs/faq-ajax.html)
+
+* [CSS Responsive table](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_table_responsive)

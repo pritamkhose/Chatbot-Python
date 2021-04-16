@@ -1,68 +1,96 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+  <head>
+    <title>AI ChatBot</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
     <script src="static/jquery.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="col-md mr-auto ml-auto">
-        <h2 class="center">AI ChatBot</h2>
-        <form>
-            <div id="chatbox">
-                <div class="col-md-8 ml-auto mr-auto">
-                    <p class="botText"><span>Hi! I'm Your bot.</span></p>
-                </div>
-            </div>
-            <div id="userInput">
-                <div class="col-md-10">
-                    <table style="width:100%">
-                        <tr>
-                            <td style="width:80%"><input id="text" type="text" name="msg" placeholder="Message" class="form-control">
-                            </td>
-                            <td style="width:20%"><button type="submit" id="send" class="btn btn-warning buttonInput">Send</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </form>
+      <h2 class="center">AI ChatBot</h2>
+      <p class="center">
+        <a href="/viewtraindata">See Training Data</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/pritamkhose/Chatbot-Python"
+          >View Source code</a
+        >
+      </p>
+      <form>
+        <div id="chatbox">
+          <div class="col-md-8 ml-auto mr-auto">
+            <p class="botText"><span>Hi! I'm Your bot.</span></p>
+          </div>
+        </div>
+        <div id="userInput">
+          <div class="col-md-10">
+            <table style="width: 100%">
+              <tr>
+                <td style="width: 80%">
+                  <input
+                    id="text"
+                    type="text"
+                    name="msg"
+                    placeholder="Message"
+                    class="form-control"
+                  />
+                </td>
+                <td style="width: 20%">
+                  <button
+                    type="submit"
+                    id="send"
+                    class="btn btn-warning buttonInput"
+                  >
+                    Send
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </form>
     </div>
 
     <script>
-        $(document).ready(function () {
-            $("form").on("submit", function (event) {
-                var rawText = $("#text").val();
-                var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
-                $("#text").val("");
-                $("#chatbox").append(userHtml);
-                document.getElementById("userInput").scrollIntoView({
-                    block: "start",
-                    behavior: "smooth",
-                });
-                $.ajax({
-                    data: {
-                        msg: rawText,
-                    },
-                    type: "POST",
-                    url: "/get",
-                }).done(function (data) {
-                    var botHtml = '';
-                    if (data.error) {
-                        botHtml = '<p class="botTextError"><span>' + data.msg + "</span></p>"
-                    } else {
-                        botHtml = '<p class="botText"><span>' + data.msg + "</span></p>"
-                    }
-                    $("#chatbox").append($.parseHTML(botHtml));
-                    document.getElementById("userInput").scrollIntoView({
-                        block: "start",
-                        behavior: "smooth",
-                    });
-                });
-                event.preventDefault();
+      $(document).ready(function () {
+        $("form").on("submit", function (event) {
+          var rawText = $("#text").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#text").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById("userInput").scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+          });
+          $.ajax({
+            data: {
+              msg: rawText,
+            },
+            type: "POST",
+            url: "/get",
+          }).done(function (data) {
+            var botHtml = "";
+            if (data.error) {
+              botHtml =
+                '<p class="botTextError"><span>' + data.msg + "</span></p>";
+            } else {
+              botHtml = '<p class="botText"><span>' + data.msg + "</span></p>";
+            }
+            $("#chatbox").append($.parseHTML(botHtml));
+            document.getElementById("userInput").scrollIntoView({
+              block: "start",
+              behavior: "smooth",
             });
+          });
+          event.preventDefault();
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
