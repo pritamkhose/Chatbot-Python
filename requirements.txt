@@ -2,7 +2,7 @@ flask
 flask_ngrok
 flask_cors
 gunicorn
-numpy==1.19.5
+numpy==1.22.0
 pandas==1.0.5
 requests
 pymongo
